@@ -1,13 +1,14 @@
 # Brief de bolsillo
 
-Un generador de briefs creativos para diseñadores. Cada reto incluye una idea, un sector, un público, un formato, un tono y una limitación para ayudar a arrancar un proyecto. La interfaz usa un lenguaje claro, luminoso y editorial, con pequeñas piezas gráficas originales alrededor del generador.
+Un generador de briefs creativos para diseñadores. Cada reto mezcla una idea, un sector, un público, un formato, un tono, una limitación y un enfoque distinto, con más de un millón de combinaciones posibles.
 
 ## Funciones
 
-- Genera briefs aleatorios sin repetir el anterior.
+- Genera briefs aleatorios sin repetir las últimas combinaciones usadas.
 - Guarda, consulta, copia y elimina briefs.
 - Conserva los guardados en el navegador con `localStorage`.
-- Diseño adaptable a móvil y escritorio.
+- Fondo animado de ondas azules sobre negro, realizado en Canvas y adaptable a móvil y escritorio.
+- Prioriza Google Sans; usa DM Sans como alternativa cuando la fuente no está instalada.
 - No necesita cuenta, servidor ni claves de API.
 
 ## Abrir el proyecto
