@@ -7,7 +7,7 @@ Un generador de briefs creativos para diseñadores. Cada reto mezcla una idea, u
 - Genera briefs aleatorios sin repetir las últimas combinaciones usadas.
 - Guarda, consulta, copia y elimina briefs.
 - Conserva los guardados en el navegador con `localStorage`.
-- Fondo animado de ondas azules sobre negro, realizado en Canvas y adaptable a móvil y escritorio.
+- Fondo de vídeo en bucle con ondas azules sobre negro, adaptado a móvil y escritorio.
 - Prioriza Google Sans; usa DM Sans como alternativa cuando la fuente no está instalada.
 - No necesita cuenta, servidor ni claves de API.
 

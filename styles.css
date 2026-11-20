@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Google+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   color-scheme: dark;
@@ -52,7 +52,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #56a1ff; outline-offs
 
 .intro { isolation: isolate; left: 50%; margin: 0 0 33px; min-height: 560px; padding: 86px 18px 48px; position: relative; text-align: center; transform: translateX(-50%); width: 100vw; }
 .wave-scene { background: radial-gradient(ellipse at 50% 78%, #07132c 0%, #03050b 61%); inset: 0; overflow: hidden; position: absolute; z-index: -2; }
-.wave-canvas { display: block; height: 100%; inset: 0; position: absolute; width: 100%; }
+.wave-video { display: block; height: 100%; inset: 0; object-fit: cover; object-position: center 62%; opacity: .9; position: absolute; width: 100%; }
 .wave-overlay { background: linear-gradient(180deg, rgba(3,5,11,.15) 0%, rgba(3,5,11,.08) 48%, #03050b 100%), radial-gradient(ellipse at center, transparent 16%, rgba(3,5,11,.26) 76%); inset: 0; position: absolute; }
 .eyebrow { color: #9cbcf2; font-size: 9px; font-weight: 600; letter-spacing: 1.8px; margin: 0; position: relative; text-shadow: 0 0 22px rgba(36,118,255,.6); z-index: 1; }
 h1, h2 { font-family: 'Google Sans', 'Google Sans Display', 'Product Sans', 'DM Sans', Arial, sans-serif; }
@@ -76,9 +76,9 @@ h1, h2 { font-family: 'Google Sans', 'Google Sans Display', 'Product Sans', 'DM 
 .brief-footer { align-items: center; border-top: 1px solid rgba(106,144,205,.16); display: flex; justify-content: space-between; min-height: 67px; padding: 12px 25px; }
 .brief-footnote { color: #75849a; font-size: 8px; font-weight: 700; letter-spacing: 1px; }
 .brief-actions { align-items: center; display: flex; gap: 9px; }
-.change-button { align-items: center; background: #0e2349; border: 1px solid #214d91; border-radius: 24px; color: #d8e9ff; cursor: pointer; display: inline-flex; font-size: 11px; font-weight: 600; gap: 7px; min-height: 38px; padding: 0 15px; transition: background .2s, border-color .2s, transform .2s; }
-.change-button:hover { background: #153a76; border-color: #3c7fe0; transform: translateY(-1px); }
-.change-button svg { fill: none; height: 14px; stroke: #62a4ff; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; width: 14px; }
+.change-button { align-items: center; background: transparent; border: 0; border-radius: 6px; color: #75aaff; cursor: pointer; display: inline-flex; font-size: 11px; font-weight: 500; gap: 6px; min-height: 32px; padding: 0 5px; transition: color .18s, transform .18s; }
+.change-button:hover { color: #b7d5ff; transform: translateY(-1px); }
+.change-button svg { fill: none; height: 14px; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; width: 14px; }
 .icon-button { align-items: center; background: #0b1320; border: 1px solid #243550; border-radius: 50%; color: #9fb2cc; cursor: pointer; display: inline-flex; height: 38px; justify-content: center; transition: background .2s, color .2s, border-color .2s; width: 38px; }
 .icon-button:hover { background: #13203a; border-color: #4569a3; color: white; }
 .icon-button svg { fill: none; height: 16px; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; width: 16px; }
@@ -147,8 +147,8 @@ h1, h2 { font-family: 'Google Sans', 'Google Sans Display', 'Product Sans', 'DM 
   .brief-details { gap: 6px; margin-top: 16px; }
   .detail-chip { font-size: 9px; padding: 6px 9px; }
   .brief-footer { align-items: flex-start; flex-direction: column; gap: 12px; padding: 14px 15px; }
-  .brief-actions { align-self: stretch; display: grid; grid-template-columns: 1fr 38px auto; gap: 7px; }
-  .change-button { font-size: 10px; justify-content: center; min-height: 39px; padding: 0 10px; }
+  .brief-actions { align-self: stretch; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+  .change-button { font-size: 10px; min-height: 34px; padding: 0 4px; }
   .icon-button { height: 38px; width: 38px; }
   .save-button { font-size: 10px; justify-content: center; min-height: 38px; padding: 0 11px; }
   .bottom-row { margin-top: 13px; }

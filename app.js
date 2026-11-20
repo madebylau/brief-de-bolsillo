@@ -220,94 +220,6 @@ function showToast(message) {
   toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
 }
 
-function initWaveCanvas() {
-  const canvas = $('#wave-canvas');
-  if (!canvas) return;
-  const context = canvas.getContext('2d');
-  if (!context) return;
-
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const variation = {
-    speed: 0.003 + Math.random() * 0.003,
-    height: 52 + Math.random() * 46,
-    width: 0.004 + Math.random() * 0.003,
-    drift: 0.002 + Math.random() * 0.002,
-    density: 24 + Math.floor(Math.random() * 18),
-    phase: Math.random() * Math.PI * 2
-  };
-  let width = 0;
-  let height = 0;
-  let pixelRatio = 1;
-  let time = variation.phase;
-
-  function resize() {
-    const rect = canvas.getBoundingClientRect();
-    width = rect.width;
-    height = rect.height;
-    pixelRatio = Math.min(window.devicePixelRatio || 1, 1.6);
-    canvas.width = Math.round(width * pixelRatio);
-    canvas.height = Math.round(height * pixelRatio);
-    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-    draw();
-  }
-
-  function draw() {
-    context.clearRect(0, 0, width, height);
-    context.globalCompositeOperation = 'screen';
-    const center = height * 0.72;
-    const leftColor = '#145cff';
-    const midColor = '#00aaff';
-    const rightColor = '#315bff';
-
-    for (let layer = 0; layer < 3; layer += 1) {
-      const layerOffset = layer * 19;
-      const layerAlpha = 0.13 + layer * 0.065;
-      for (let row = 0; row < variation.density; row += 1) {
-        const normalized = (row / (variation.density - 1)) * 2 - 1;
-        context.beginPath();
-        for (let x = -20; x <= width + 20; x += 12) {
-          const distance = (x - width * 0.51) / (width * 0.58);
-          const envelope = Math.max(0, 1 - distance * distance);
-          const swell = Math.sin(x * variation.width + time + normalized * 0.32 + layerOffset * 0.01) * variation.height * envelope;
-          const ripple = Math.sin(x * 0.011 - time * 1.35 + row * 0.075 + layer) * 15 * envelope;
-          const diagonal = Math.sin(x * 0.0026 + time * 0.48 + layer) * 25;
-          const y = center + normalized * (36 + layerOffset) + swell + ripple + diagonal;
-          if (x === -20) context.moveTo(x, y);
-          else context.lineTo(x, y);
-        }
-        const gradient = context.createLinearGradient(0, 0, width, 0);
-        gradient.addColorStop(0, leftColor);
-        gradient.addColorStop(0.5, midColor);
-        gradient.addColorStop(1, rightColor);
-        context.strokeStyle = gradient;
-        context.globalAlpha = layerAlpha;
-        context.lineWidth = row % 7 === 0 ? 1.15 : 0.55;
-        context.shadowColor = layer === 1 ? '#138bff' : '#195dff';
-        context.shadowBlur = row % 7 === 0 ? 14 : 5;
-        context.stroke();
-      }
-    }
-    context.globalAlpha = 1;
-    context.globalCompositeOperation = 'source-over';
-    context.shadowBlur = 0;
-  }
-
-  let animationFrame;
-  function animate() {
-    time += variation.speed;
-    draw();
-    animationFrame = window.requestAnimationFrame(animate);
-  }
-
-  resize();
-  window.addEventListener('resize', resize, { passive: true });
-  if (!reducedMotion) animationFrame = window.requestAnimationFrame(animate);
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) window.cancelAnimationFrame(animationFrame);
-    else if (!reducedMotion) animationFrame = window.requestAnimationFrame(animate);
-  });
-}
-
 document.querySelectorAll('.nav-link').forEach((button) => button.addEventListener('click', () => switchView(button.dataset.view)));
 $('#surprise-button').addEventListener('click', chooseBrief);
 $('#save-button').addEventListener('click', saveCurrentBrief);
@@ -334,6 +246,5 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Enter' && !['BUTTON', 'INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) chooseBrief();
 });
 
-initWaveCanvas();
 updateSavedCount();
 chooseBrief();
