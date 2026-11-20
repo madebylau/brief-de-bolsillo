@@ -1,6 +1,6 @@
 # Brief de bolsillo
 
-Un generador de briefs creativos para diseñadores. Cada reto incluye una idea, un sector, un público, un formato, un tono y una limitación para ayudar a arrancar un proyecto.
+Un generador de briefs creativos para diseñadores. Cada reto incluye una idea, un sector, un público, un formato, un tono y una limitación para ayudar a arrancar un proyecto. La interfaz usa un lenguaje claro, luminoso y editorial, con pequeñas piezas gráficas originales alrededor del generador.
 
 ## Funciones
 
