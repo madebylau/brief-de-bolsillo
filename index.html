@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f5f1" />
+    <meta name="description" content="Genera briefs creativos para salir del bloqueo y empezar a diseñar." />
+    <title>Brief de bolsillo — laboratorio creativo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="sidebar" aria-label="Navegación principal">
+        <a class="brand" href="#inicio" aria-label="Brief de bolsillo, inicio">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>brief<span class="brand-light"> de bolsillo</span></span>
+        </a>
+
+        <nav class="main-nav">
+          <button class="nav-link active" data-view="generator" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16M4 12h16M4 18.5h10" /></svg>
+            <span>Crear brief</span>
+          </button>
+          <button class="nav-link" data-view="saved" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.75h12a1 1 0 0 1 1 1v14l-7-4-7 4v-14a1 1 0 0 1 1-1Z" /></svg>
+            <span>Mis briefs</span>
+            <span class="saved-count" id="saved-count">0</span>
+          </button>
+        </nav>
+
+      </header>
+
+      <main class="main-content" id="inicio">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>LABORATORIO</span><span class="crumb-separator">/</span><span id="current-section">NUEVO BRIEF</span></div>
+        </header>
+
+        <section class="view active" id="generator-view" aria-labelledby="page-title">
+          <div class="intro">
+            <div class="idea-mosaic" aria-hidden="true">
+              <div class="mosaic-card mosaic-card-a"><div class="mosaic-art art-editorial"><span>IDEAS<br />EN<br />MARCHA</span></div><span class="mosaic-caption">EDITORIAL · 01</span></div>
+              <div class="mosaic-card mosaic-card-b"><div class="mosaic-art art-shapes"><i></i><i></i><i></i></div><span class="mosaic-caption">COLOR · 02</span></div>
+              <div class="mosaic-card mosaic-card-c"><div class="mosaic-art art-grid"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="mosaic-caption">SISTEMA · 03</span></div>
+              <div class="mosaic-card mosaic-card-d"><div class="mosaic-art art-type"><span>Aa</span></div><span class="mosaic-caption">TIPOGRAFÍA · 04</span></div>
+              <div class="mosaic-card mosaic-card-e"><div class="mosaic-art art-poster"><span>OTRA<br />FORMA<br />DE VER</span></div><span class="mosaic-caption">CARTEL · 05</span></div>
+            </div>
+            <p class="eyebrow">UNA IDEA PARA PONERTE EN MARCHA</p>
+            <h1 id="page-title">¿Qué vas a<br /><span>diseñar hoy?</span></h1>
+            <p class="intro-copy">Un brief breve para poner las ideas en movimiento. El resto lo haces tú.</p>
+            <button class="topbar-button hero-generate" id="surprise-button" type="button" title="Generar otro brief">
+              <span>Sorpréndeme</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-5 5 5-5 5" /></svg>
+            </button>
+          </div>
+
+          <div class="brief-panel" aria-live="polite">
+            <div class="brief-topline">
+              <div class="brief-index"><span class="pulse-dot"></span><span id="brief-number">BRIEF Nº 01</span></div>
+              <span class="brief-date" id="brief-date"></span>
+            </div>
+            <div class="brief-content">
+              <div class="brief-category" id="brief-category">IDENTIDAD VISUAL <span>•</span> CULTURA</div>
+              <h2 id="brief-title">Una noche<br />que se recuerda</h2>
+              <p class="brief-description" id="brief-description"></p>
+              <div class="brief-details" id="brief-details"></div>
+            </div>
+            <div class="brief-footer">
+              <span class="brief-footnote">TÓMALO COMO UN ENCARGO REAL.</span>
+              <div class="brief-actions">
+                <button class="icon-button" id="copy-button" type="button" aria-label="Copiar brief" title="Copiar brief">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2"/></svg>
+                </button>
+                <button class="save-button" id="save-button" type="button">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.75h12a1 1 0 0 1 1 1v14l-7-4-7 4v-14a1 1 0 0 1 1-1Z" /></svg>
+                  <span>Guardar brief</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="bottom-row">
+            <p><span class="key-hint">↵</span> Genera otra idea cuando quieras.</p>
+            <button class="text-button" id="another-button" type="button">Otro brief <span aria-hidden="true">↗</span></button>
+          </div>
+        </section>
+
+        <section class="view" id="saved-view" aria-labelledby="saved-title">
+          <div class="saved-heading">
+            <div>
+              <p class="eyebrow">TU ARCHIVO</p>
+              <h1 id="saved-title">Mis briefs<span class="heading-period">.</span></h1>
+            </div>
+            <p class="saved-intro">Ideas que te han llamado la atención.<br />Guardadas solo en este dispositivo.</p>
+          </div>
+          <div class="saved-list" id="saved-list"></div>
+        </section>
+
+        <footer class="page-footer"><span>HECHO PARA EMPEZAR, NO PARA QUEDARSE PENSANDO.</span><span>BRIEF DE BOLSILLO © 2026</span></footer>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
